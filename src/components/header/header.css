@@ -1,0 +1,32 @@
+.header{
+    border-bottom: 2px solid lightpink;
+    background-color: black;
+    color: white;
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+}
+.header__logo{
+    font-size: 2em;
+    text-transform: uppercase;
+}
+.header__logo span{
+    background: linear-gradient(to right, pink, red);
+
+}
+.header ul{
+    display: flex;
+
+}
+.header ul li a{
+    padding: .5em 1em;
+    background-color: grey;
+    margin-right: 1em;
+    color: white;
+}
+.header ul li a:hover{
+    background-color: red;
+}
+.header ul li a i{
+    margin-right: 1em;
+}
