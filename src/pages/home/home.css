@@ -1,0 +1,6 @@
+@import url('../../styles/basic.css');
+.home{
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+}

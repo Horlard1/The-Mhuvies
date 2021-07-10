@@ -1,12 +1,12 @@
 import React from 'react'
-
+import './form.css'
 const Form = () => {
     return (
         <div className="form__field">
             <form>
                 <div className="form__ctrl">
-                    <input type="text" placeholder="Search for movies" autoComplete= "off" />
                     <i className="fas fa-search"></i>
+                    <input type="text" placeholder="Search for movies" autoComplete= "off" />
                 </div>
             </form>
         </div>
