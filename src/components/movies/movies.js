@@ -5,16 +5,15 @@ import './movies.css'
 
 const Movies = () => {
     const [movies]= useContext(movieContest)
-    return (<>
-        
+    return (
         <div className="movies__cards">
             {(movies && movies.length > 0) ? movies.map(movie=>(
-                    <div key={movie.id} className="movie__card">
-                        <Movie movie={movie} />
-                    </div>
+                <div key={movie.id} className="movie__card">
+                    <Movie movie={movie} />
+                </div>
             )): <div></div>}
         </div>
-    </>)
+    )
 }
 
 export default Movies
