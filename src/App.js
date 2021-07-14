@@ -14,6 +14,7 @@ import SingleMovie from './components/movies/singleMovie'
 
 //Context
 import MoviesContextProvider from './context/moviesContext'
+import VideoContextProvider from './context/videoContext';
 
 const App = () => {
   return (
@@ -21,12 +22,14 @@ const App = () => {
       <Switch>
         <div className="app" style={{background: "black"}}>
           <MoviesContextProvider>
-            <Header />
-            <ToastContainer />
-            <Route exact path="/" component= {Home} />
-            <Route exact path ='/movie/:id' component={SingleMovie} />
-            {/* <Register />
-            <Login /> */}
+            <VideoContextProvider>
+              <Header />
+              <ToastContainer />
+              <Route exact path="/" component= {Home} />
+              <Route exact path ='/movie/:id' component={SingleMovie} />
+              {/* <Register />
+              <Login /> */}
+            </VideoContextProvider>
           </MoviesContextProvider>
         </div>
       </Switch>

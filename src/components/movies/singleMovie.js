@@ -4,17 +4,22 @@ import { findNums } from '../../function/helper'
 import alternative from '../../asset/not-found.png'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { videoContext } from '../../context/videoContext'
 
 const SingleMovie = ({match, history}) => {
     const [oneMovie, setOneMovie] = useState(null)
     const [movies] = useContext(movieContest)
     const [movieID, setMovieId] = useState('')
-    const [video, setVideo] = useState(null)
+    const [video, setVideo] = useContext(videoContext)
+
+
+
     useEffect(()=>{
         const id = match.params.id
         const movie = movies.filter(mov=> mov.id === id)
         setOneMovie(movie)
     }, [movies, match.params.id])
+
     const headers = {
         'x-rapidapi-key': process.env.React_APP_API_RAPID_API,
         'x-rapidapi-host': process.env.React_APP_API_RAPID_HOST
@@ -28,6 +33,7 @@ const SingleMovie = ({match, history}) => {
                 })
                 console.log(data)
                 setVideo(data)
+                localStorage.setItem('video', JSON.stringify(data))
             } catch (error) {
                 console.error(error)
             }
@@ -51,6 +57,7 @@ const SingleMovie = ({match, history}) => {
         ))}
         {video && <div className="video__container">
             <video className="video__content" autoPlay="on" controls="on">
+                
                 <source src={video.resource.encodings[1].playUrl} type={video.resource.encodings[1].mimeType}></source>
             </video>
             </div>}
