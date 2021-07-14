@@ -1,22 +1,35 @@
 import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+//Pages
 import Register from './pages/Register/register'
 import Login from './pages/Login/login'
-import { BrowserRouter as Router } from 'react-router-dom'
 import Home from './pages/home/home'
+
+//Components
 import Header from './components/header/header'
+import SingleMovie from './components/movies/singleMovie'
+
+//Context
 import MoviesContextProvider from './context/moviesContext'
 
 const App = () => {
   return (
     <Router>
-      <div className="app" style={{background: "black"}}>
-        <MoviesContextProvider>
-          <Header />
-          <Home />
-          {/* <Register />
-          <Login /> */}
-        </MoviesContextProvider>
-      </div>
+      <Switch>
+        <div className="app" style={{background: "black"}}>
+          <MoviesContextProvider>
+            <Header />
+            <ToastContainer />
+            <Route exact path="/" component= {Home} />
+            <Route exact path ='/movie/:id' component={SingleMovie} />
+            {/* <Register />
+            <Login /> */}
+          </MoviesContextProvider>
+        </div>
+      </Switch>
     </Router>
   )
 }
