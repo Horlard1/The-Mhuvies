@@ -1,0 +1,32 @@
+footer{
+    height: 100px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2.5em;
+    border-top: 2px solid darkgray;
+    padding: 1em ;
+}
+footer ul{
+    display: flex;
+}
+footer ul li{
+    margin-right: 1.5em;
+}
+footer ul li a{
+    color: white;
+}
+footer ul li a i{
+    font-size: 3em;
+}
+@media screen and (max-width: 600px) {
+    footer{
+        font-size: .8em;
+    }
+}
+@media screen and (max-width: 450px) {
+    footer{
+        font-size: .47em;
+    }
+}

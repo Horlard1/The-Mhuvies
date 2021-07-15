@@ -32,3 +32,17 @@ form{
     left: 50px;
     transform: translateY(-50%);
 }
+@media screen and (max-width: 580px) {
+    .form__field{
+        width: 100%;
+    }
+    .form__ctrl{
+        padding: 0;
+    }
+    .form__ctrl input{
+        font-size: .8em;
+    }
+    .form__field form i{
+        left: 20px;
+    }
+}

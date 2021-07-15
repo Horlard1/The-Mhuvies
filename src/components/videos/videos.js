@@ -6,7 +6,7 @@ const Videos = ({history}) => {
     const [video] = useContext(videoContext)
     const { encodings} = video.resource
     return (<>
-        <button className="back__button" onClick={()=>history.goBack()}>Back</button>
+        <button className="back__button" onClick={()=>history.goBack()}><i class="fas fa-arrow-left"></i>Back</button>
         {video && <div className="video__container">
             <video className="video__content" autoPlay="on" controls="on">
                 {encodings.map(items=>(

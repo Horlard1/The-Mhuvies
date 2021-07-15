@@ -1,9 +1,10 @@
-.header{
+header{
     border-bottom: 2px solid lightpink;
     background-color: black;
     color: white;
     padding: 2em;
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 .header__logo{
@@ -18,19 +19,24 @@
     background: linear-gradient(to right, pink, red);
 
 }
-.header ul{
+header ul{
     display: flex;
 
 }
-.header ul li a{
+header ul li a{
     padding: .5em 1em;
     background-color: grey;
     margin-right: 1em;
     color: white;
 }
-.header ul li a:hover{
-    background-color: red;
+header ul li a:hover{
+    background-color: lightgrey;
 }
-.header ul li a i{
+header ul li a i{
     margin-right: 1em;
+}
+@media screen and (max-width: 580px) {
+    header ul{
+        display: none;
+    }
 }

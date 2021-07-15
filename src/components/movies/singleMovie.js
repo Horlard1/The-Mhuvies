@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { movieContest } from '../../context/moviesContext'
-import { findNums } from '../../function/helper'
 import alternative from '../../asset/not-found.png'
 import axios from 'axios'
 import { toast } from 'react-toastify'
@@ -10,7 +9,7 @@ const SingleMovie = ({match, history}) => {
     const [oneMovie, setOneMovie] = useState(null)
     const [movies] = useContext(movieContest)
     // const [movieID, setMovieId] = useState('')
-    const [video, setVideo] = useContext(videoContext)
+    const [, setVideo] = useContext(videoContext)
     useEffect(()=>{
         const id = match.params.id
         const movie = movies.filter(mov=> mov.id === id)
@@ -33,7 +32,9 @@ const SingleMovie = ({match, history}) => {
                 localStorage.setItem('video', JSON.stringify(data))
                 history.push('/watch-preview')
             } catch (error) {
-                console.error(error)
+                if(error.request.status === 0){
+                    toast('Network Error, check your connection')
+                }
             }
             
         }else{
