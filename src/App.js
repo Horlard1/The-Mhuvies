@@ -11,6 +11,7 @@ import Home from './pages/home/home'
 //Components
 import Header from './components/header/header'
 import SingleMovie from './components/movies/singleMovie'
+import Videos from './components/videos/videos';
 
 //Context
 import MoviesContextProvider from './context/moviesContext'
@@ -19,20 +20,21 @@ import VideoContextProvider from './context/videoContext';
 const App = () => {
   return (
     <Router>
-      <Switch>
-        <div className="app" style={{background: "black"}}>
+      <div className="app" style={{background: "black"}}>
+        <Switch>
           <MoviesContextProvider>
             <VideoContextProvider>
               <Header />
               <ToastContainer />
               <Route exact path="/" component= {Home} />
               <Route exact path ='/movie/:id' component={SingleMovie} />
+              <Route exact path="/watch-preview" component={Videos} />
               {/* <Register />
               <Login /> */}
             </VideoContextProvider>
           </MoviesContextProvider>
-        </div>
-      </Switch>
+        </Switch>
+      </div>
     </Router>
   )
 }

@@ -1,4 +1,3 @@
-
 export const findNums = (string)=>{
     let regex = /[^0-9]/g;
     if(typeof string === 'string' && string.trim().length > 0){

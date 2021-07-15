@@ -9,11 +9,8 @@ import { videoContext } from '../../context/videoContext'
 const SingleMovie = ({match, history}) => {
     const [oneMovie, setOneMovie] = useState(null)
     const [movies] = useContext(movieContest)
-    const [movieID, setMovieId] = useState('')
+    // const [movieID, setMovieId] = useState('')
     const [video, setVideo] = useContext(videoContext)
-
-
-
     useEffect(()=>{
         const id = match.params.id
         const movie = movies.filter(mov=> mov.id === id)
@@ -34,6 +31,7 @@ const SingleMovie = ({match, history}) => {
                 console.log(data)
                 setVideo(data)
                 localStorage.setItem('video', JSON.stringify(data))
+                history.push('/watch-preview')
             } catch (error) {
                 console.error(error)
             }
@@ -55,12 +53,7 @@ const SingleMovie = ({match, history}) => {
                 </div> 
             </div>
         ))}
-        {video && <div className="video__container">
-            <video className="video__content" autoPlay="on" controls="on">
-                
-                <source src={video.resource.encodings[1].playUrl} type={video.resource.encodings[1].mimeType}></source>
-            </video>
-            </div>}
+        
     </>)
 }
 

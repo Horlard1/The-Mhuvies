@@ -1,0 +1,17 @@
+.back__button{
+    padding: 1em;
+    outline: none;
+    border: 1px solid black;
+    color: lightpink;
+}
+.video__container{
+    width: 95vw;
+    border: 2px solid white;
+    border-radius: 1em;
+    margin: 1em auto;
+}
+.video__content{
+    width: 100%;
+    border-radius: 1em;
+    outline: none;
+}

@@ -10,6 +10,10 @@
     font-size: 2em;
     text-transform: uppercase;
 }
+.header__logo a{
+    color: white;
+    font-weight: 500;
+}
 .header__logo span{
     background: linear-gradient(to right, pink, red);
 

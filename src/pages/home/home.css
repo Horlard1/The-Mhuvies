@@ -1,4 +1,4 @@
-@import '../../styles/basic.css';
+@import url(../../styles/basic.css);
 .home{
     padding: 0 2em;
     color: white;
