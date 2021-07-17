@@ -19,8 +19,8 @@ const RelatedMovies = ({id}) => {
         <div className="related__movies">
                 <h3>Related Movies</h3>
             <div className="movies__cards">
-                {(related && related.length > 0)&& related.map(movie=>(<>
-                    <div onClick={()=>handleClick(movie.id)}  className="movie__card">
+                {(related && related.length > 0)&& related.map(movie=>(
+                    <div onClick={()=>handleClick(movie.id)} key={movie.id} className="movie__card">
                         <img className="movies__image" src={movie.i ? movie.i.imageUrl : alternative} alt={movie.l} />
                         <div className="movies__details">
                             <h2>{movie.l && movie.l.length ? movie.l : movie.q}</h2>
@@ -28,7 +28,7 @@ const RelatedMovies = ({id}) => {
                             <p>Released:  {movie.y ? movie.y : movie.yr ? movie.yr : ''}</p>
                         </div>
                     </div>
-                </>))}
+                ))}
             </div>
         </div>
     )
