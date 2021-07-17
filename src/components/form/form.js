@@ -26,10 +26,10 @@ const Form = () => {
                 setMovies(data.d)
                 localStorage.setItem("movies", JSON.stringify(data.d))
               } catch (error) {
-                //   if(error.request.status === 0){
-                //     toast('Network Error')
-                    console.error(error)
-                //   }
+                  if(error.request.status === 0){
+                    toast('Network Error')
+                    console.error(error.request)
+                  }
               }
               
           }
@@ -37,12 +37,13 @@ const Form = () => {
       useEffect(()=>{
           setMovies(JSON.parse(localStorage.getItem('movies')))
       }, [setMovies])
+      
     return (
         <div className="form__field">
             <form onSubmit={(e)=>{e.preventDefault()}}>
                 <div className="form__ctrl">
                     <i className="fas fa-search"></i>
-                    <input type="text" onChange={(e)=>handleSubmit} placeholder="Search for movies" autoComplete= "off" />
+                    <input type="text" onChange={(e)=>handleSubmit(e.target.value)} placeholder="Search for movies" autoComplete= "off" />
                 </div>
             </form>
         </div>

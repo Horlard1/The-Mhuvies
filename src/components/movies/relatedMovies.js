@@ -6,17 +6,26 @@ import { useHistory } from 'react-router-dom'
 const RelatedMovies = ({id}) => {
     const [related, setRelated] = useState(null)
     const [movies] = useContext(movieContest)
+    const [loading, setLoading] = useState(false)
     const history = useHistory()
     useEffect(()=>{
-        const similar = movies.filter(movie=> movie.id !== id)
-        // console.log(similar)
+        const localMovies = JSON.parse(localStorage.getItem('movies'))
+        console.log(localMovies)
+        const similar = movies !== null ?  movies.filter(mov=> mov.id !== id) : localMovies ? localMovies.filter(mov=>mov.id !== id) : null
         setRelated(similar)
     },[id, movies])
+    
     const handleClick=(data)=>{
-        history.push(`/movie/${data}`)
+        setLoading(true)
+        setTimeout(()=>{
+            history.push(`/movie/${data}`)
+            setLoading(false)
+        }, 1500)
     }
-    return (
-        <div className="related__movies">
+    return (<>{loading && <div className="related__movies__loading">
+                <h2>Loading...</h2>
+        </div>}
+        {!loading && <div className="related__movies">
                 <h3>Related Movies</h3>
             <div className="movies__cards">
                 {(related && related.length > 0)&& related.map(movie=>(
@@ -30,8 +39,8 @@ const RelatedMovies = ({id}) => {
                     </div>
                 ))}
             </div>
-        </div>
-    )
+        </div>}
+    </>)
 }
 
 export default RelatedMovies

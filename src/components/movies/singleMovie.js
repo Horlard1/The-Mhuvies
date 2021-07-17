@@ -13,7 +13,8 @@ const SingleMovie = ({match, history}) => {
     const [, setVideo] = useContext(videoContext)
     useEffect(()=>{
         const id = match.params.id
-        const movie = movies.filter(mov=> mov.id === id)
+        const localMovies = JSON.parse(localStorage.getItem('movies'))
+        const movie = movies !== null ? movies.filter(mov=> mov.id === id) : localMovies ? localMovies.filter(mov=>mov.id === id) : null
         setOneMovie(movie)
     }, [movies, match.params.id])
     useEffect(()=>{
@@ -28,7 +29,6 @@ const SingleMovie = ({match, history}) => {
                         'x-rapidapi-key': process.env.React_APP_API_RAPID_API,
                         'x-rapidapi-host': process.env.React_APP_API_RAPID_HOST
                       }
-                    //   console.log(id)
                     try {
                         const {data} = await axios.get(`${process.env.React_APP_API_URL}title/get-videos`, {
                             headers,
@@ -36,7 +36,10 @@ const SingleMovie = ({match, history}) => {
                         })
                         
                     } catch (error) {
-                        console.error(error)
+                        if(error.request.status === 0){
+                                toast('Network Error')
+                                console.error(error)
+                              }
                     }
                 }
             })

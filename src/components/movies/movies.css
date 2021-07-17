@@ -96,6 +96,18 @@
     font-size: 2.5em;
     margin-bottom: 1.5em;
 }
+.related__movies__loading{
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(253, 253, 253, 0.98);
+    z-index: 10;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.45);
+}
 @media screen and (max-width: 850px) {
     .movies__cards{
         grid-template-columns: repeat(2, minmax(250px, 1fr));
