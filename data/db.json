@@ -303,20 +303,6 @@
   "movies": [],
   "videos": [],
   "user": [
-    {
-      "email": "ola@gmail.com",
-      "password": "1234567890",
-      "id": 1
-    },
-    {
-      "email": "gdhdj@sbs.cnn",
-      "password": "123456789",
-      "id": 2
-    },
-    {
-      "email": "adf@fg.scjd",
-      "password": "tyghsmiuls",
-      "id": 3
-    }
+    
   ]
 }
