@@ -5,7 +5,7 @@ import { movieContest } from '../../context/moviesContext'
 import { toast } from "react-toastify";
 
 const Form = () => {
-    const  [ , setMovies] = useContext(movieContest)
+    const  [ movies, setMovies] = useContext(movieContest)
     const headers = {
         'x-rapidapi-key': process.env.React_APP_API_RAPID_API,
         'x-rapidapi-host': process.env.React_APP_API_RAPID_HOST
@@ -24,19 +24,27 @@ const Form = () => {
                     cancelToken: cancelToken.token
                 })
                 setMovies(data.d)
-                localStorage.setItem("movies", JSON.stringify(data.d))
               } catch (error) {
-                  if(error.request.status === 0){
-                    toast('Network Error')
-                    console.error(error.request)
-                  }
+                //   if(error.request.status === 0){
+                //     toast('Network Error')
+                    console.error(error.response)
+                //   }
               }
               
           }
       }
       useEffect(()=>{
-          setMovies(JSON.parse(localStorage.getItem('movies')))
-      }, [setMovies])
+          if(!movies){
+            try {
+                axios.get('http://localhost:8000/autos').then(res=>{
+                    setMovies(res.data)
+                })
+            } catch (error) {
+                console.log(error.response)
+            }
+          }
+          
+      }, [movies, setMovies])
       
     return (
         <div className="form__field">

@@ -12,8 +12,7 @@ const Videos = ({history}) => {
                 {encodings.map(items=>(
                     <source key={items.definition} src={items.playUrl} type={items.mimeType}></source>
                 ))}
-                {/* <source src={video.resource.encodings[1].playUrl} type={video.resource.encodings[1].mimeType}></source> */}
-            </video>
+                </video>
             </div>}
     </>)
 }

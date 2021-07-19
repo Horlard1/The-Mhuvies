@@ -10,7 +10,7 @@ const RelatedMovies = ({id}) => {
     const history = useHistory()
     useEffect(()=>{
         const localMovies = JSON.parse(localStorage.getItem('movies'))
-        console.log(localMovies)
+        // console.log(localMovies)
         const similar = movies !== null ?  movies.filter(mov=> mov.id !== id) : localMovies ? localMovies.filter(mov=>mov.id !== id) : null
         setRelated(similar)
     },[id, movies])

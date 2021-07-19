@@ -7,34 +7,39 @@ import "react-toastify/dist/ReactToastify.css";
 // import Register from './pages/Register/register'
 // import Login from './pages/Login/login'
 import Home from './pages/home/home'
+import Login from './pages/Login/login';
 
 //Components
 import Header from './components/header/header'
 import SingleMovie from './components/movies/singleMovie'
 import Videos from './components/videos/videos';
+import Footer from './components/footer/footer';
 
 //Context
 import MoviesContextProvider from './context/moviesContext'
 import VideoContextProvider from './context/videoContext';
-import Footer from './components/footer/footer';
+import UserContextProvider from './context/userContext';
 
 const App = () => {
   return (
     <Router>
       <div className="app" style={{background: "black"}}>
         <Switch>
-          <MoviesContextProvider>
-            <VideoContextProvider>
-              <Header />
-              <ToastContainer />
-              <Route exact path="/" component= {Home} />
-              <Route exact path ='/movie/:id' component={SingleMovie} />
-              <Route exact path="/watch-preview" component={Videos} />
-              {/* <Register />
-              <Login /> */}
-              <Footer />
-            </VideoContextProvider>
-          </MoviesContextProvider>
+          <UserContextProvider>
+            <MoviesContextProvider>
+              <VideoContextProvider>
+                <Header />
+                <ToastContainer />
+                <Route exact path="/" component= {Home} />
+                <Route exact path ='/movie/:id' component={SingleMovie} />
+                <Route exact path="/watch-preview" component={Videos} />
+                <Route exact path='/login' component={Login} />
+                {/* <Register />
+                <Login /> */}
+                <Footer />
+              </VideoContextProvider>
+            </MoviesContextProvider>
+          </UserContextProvider>
         </Switch>
       </div>
     </Router>
