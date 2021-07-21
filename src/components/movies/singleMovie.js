@@ -6,11 +6,13 @@ import { toast } from 'react-toastify'
 import { videoContext } from '../../context/videoContext'
 import RelatedMovies from './relatedMovies'
 import { userContext } from '../../context/userContext'
+import { listContext } from '../../context/listContext'
 
 
 const SingleMovie = ({match, history}) => {
     const [oneMovie, setOneMovie] = useState(null)
     const [movies] = useContext(movieContest)
+    const [list, setList] = useContext(listContext)
     const [movieID, setMovieId] = useState('')
     const [, setVideo] = useContext(videoContext)
     const [user] = useContext(userContext)
@@ -75,9 +77,19 @@ const SingleMovie = ({match, history}) => {
             toast('Cannot play video at the moment')
         }
     }
-    const addToList =(event)=>{
+    const addToList =(movieItem)=>{
         if(user && typeof user === 'string' && user.trim().length > 0){
-
+           if(list.length < 1){
+               setList([...list, movieItem])
+           }else{
+                let sameMovie = list.filter(i=> i.id === movieItem.id)
+                if(sameMovie && sameMovie.length > 0){
+                    toast('Movie already listed')
+                }else{
+                    let newList = [...list, movieItem]
+                    setList(newList)
+                }
+           }
         }else{
             history.push('/login')
             toast('Kindly login to continue')

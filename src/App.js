@@ -19,6 +19,7 @@ import Footer from './components/footer/footer';
 import MoviesContextProvider from './context/moviesContext'
 import VideoContextProvider from './context/videoContext';
 import UserContextProvider from './context/userContext';
+import ListContextProvider from './context/listContext';
 
 const App = () => {
   return (
@@ -27,17 +28,19 @@ const App = () => {
         <Switch>
           <UserContextProvider>
             <MoviesContextProvider>
-              <VideoContextProvider>
-                <Header />
-                <ToastContainer />
-                <Route exact path="/" component= {Home} />
-                <Route exact path ='/movie/:id' component={SingleMovie} />
-                <Route exact path="/watch-preview" component={Videos} />
-                <Route exact path='/login' component={Login} />
-                {/* <Register />
-                <Login /> */}
-                <Footer />
-              </VideoContextProvider>
+              <ListContextProvider>
+                <VideoContextProvider>
+                  <Header />
+                  <ToastContainer />
+                  <Route exact path="/" component= {Home} />
+                  <Route exact path ='/movie/:id' component={SingleMovie} />
+                  <Route exact path="/watch-preview" component={Videos} />
+                  <Route exact path='/login' component={Login} />
+                  {/* <Register />
+                  <Login /> */}
+                  <Footer />
+                </VideoContextProvider>
+              </ListContextProvider>
             </MoviesContextProvider>
           </UserContextProvider>
         </Switch>
