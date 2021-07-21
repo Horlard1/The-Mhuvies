@@ -40,13 +40,14 @@ const Login = () => {
                 },
                 url: "http://localhost:8000/user"
             })
-            if(res.status !== '201' || res.status !== '200'){
-                throw Error('Could not created account')
-            }else{
+            if(res.status === 201){
+                console.log(res.data.email)
                 setUser(res.data.email)
-                localStorage.setItem('user')
                 setLoading(false)
+                localStorage.setItem('user', JSON.stringify(res.data.email))
                 history.goBack()
+            }else{
+                throw Error('Could not created account')
             }
 
           } catch (error) {

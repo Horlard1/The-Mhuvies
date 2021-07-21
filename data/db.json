@@ -303,6 +303,50 @@
   "movies": [],
   "videos": [],
   "user": [
-    
+    {
+      "email": "yumin@gmail.com",
+      "password": "1234567",
+      "id": 1
+    },
+    {
+      "email": "remi@gmail.com",
+      "password": "123456789",
+      "id": 2
+    },
+    {
+      "email": "vhnds@rfsb.dhd",
+      "password": "dhydhsnms",
+      "id": 3
+    },
+    {
+      "email": "rtge@fsgs.dhd",
+      "password": "ndhdhdnd",
+      "id": 4
+    },
+    {
+      "email": "bdgd@hdjdd.ddd",
+      "password": " dbdbd2345",
+      "id": 5
+    },
+    {
+      "email": "hdhd@dss.ndh",
+      "password": "bdgythgbn shj",
+      "id": 6
+    },
+    {
+      "email": "bdhd@dsvbs.nsy",
+      "password": "7654323456",
+      "id": 7
+    },
+    {
+      "email": "bhagt@fsb.nsy",
+      "password": "ndyushnsn",
+      "id": 8
+    },
+    {
+      "email": "meman@gmail.com",
+      "password": "12345678",
+      "id": 9
+    }
   ]
 }
