@@ -1,0 +1,63 @@
+.watch__lists{
+    min-height: 68vh;
+    color: white;
+}
+.watch__list{
+    width: 90%;
+    margin: 2em auto;
+    display: flex;
+    padding: 1em 2em;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid grey;
+}
+.list__item, .links{
+    display: flex;
+    flex-direction: column;
+}
+.list__item{
+    font-size: 1.3em;
+    align-items: center;
+    text-align: center;
+}
+.list__item h2, .list__item h5{
+ margin-bottom: .5em;
+}
+
+.links button{
+    background: rgb(228, 133, 133);
+    color: white;
+    font-weight: 700;
+    border: none;
+    outline: none;
+    text-align: center;
+    margin: 1em 0;
+    padding: 1em 1.5em;
+}
+.links button:hover{
+    background: rgba(218, 93, 93, 0.5);
+}
+.movie__img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.empty__list{
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4em;
+}
+
+.empty__list i{
+    font-size: 20em;
+    color: rgba(68, 68, 68, 0.15);
+}
+@media screen and (max-width:660px) {
+    .list__item h2{
+        font-size: .5em;
+    }
+}

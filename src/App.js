@@ -20,6 +20,7 @@ import MoviesContextProvider from './context/moviesContext'
 import VideoContextProvider from './context/videoContext';
 import UserContextProvider from './context/userContext';
 import ListContextProvider from './context/listContext';
+import Watchlists from './pages/watchlist/watchlists';
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
                   <Route exact path ='/movie/:id' component={SingleMovie} />
                   <Route exact path="/watch-preview" component={Videos} />
                   <Route exact path='/login' component={Login} />
+                  <Route exact path="/watchlists" component={Watchlists} />
                   {/* <Register />
                   <Login /> */}
                   <Footer />
