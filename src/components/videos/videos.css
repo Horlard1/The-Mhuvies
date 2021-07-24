@@ -1,8 +1,13 @@
 .back__button{
     padding: 1em;
+    margin: 2em 0 0 3em;
     outline: none;
     border: 1px solid black;
     color: lightpink;
+    font-weight: 700;
+}
+.back__button i{
+    margin-right: 5px;
 }
 .video__container{
     width: 95vw;

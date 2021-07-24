@@ -13,7 +13,7 @@ const Watchlist = ({item}) => {
         setList(filteredList)
     }
     return (<>
-            <img className="movie__img" src={i ? i.imageUrl : alternative} alt={l} />
+        <img className="movie__img" src={i ? i.imageUrl : alternative} alt={l} />
         <div className="list__item">
             <h2>{l && l.length ? l : q}</h2>
             <h5>Actors: {s}</h5>

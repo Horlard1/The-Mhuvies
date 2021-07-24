@@ -8,7 +8,7 @@ const Movie = ({movie}) => {
         <img className="movies__image" src={i ? i.imageUrl : alternative} alt={l} />
         <div className="movies__details">
             <h2>{l && l.length ? l : q}</h2>
-            <h4>By: {s}</h4>
+            <h4>Directors: {s}</h4>
             <p>Released:  {y ? y : yr ? yr : (year[0] && year[1].length > 0) ? year[1] : ''}</p>
         </div>
     </>)

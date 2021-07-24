@@ -1,5 +1,4 @@
 .watch__lists{
-    min-height: 68vh;
     color: white;
 }
 .watch__list{
@@ -19,6 +18,7 @@
     font-size: 1.3em;
     align-items: center;
     text-align: center;
+    flex-grow: 1;
 }
 .list__item h2, .list__item h5{
  margin-bottom: .5em;
@@ -42,6 +42,7 @@
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
+    flex-shrink: 0;
 }
 .empty__list{
     width: 100%;
@@ -56,8 +57,48 @@
     font-size: 20em;
     color: rgba(68, 68, 68, 0.15);
 }
-@media screen and (max-width:660px) {
-    .list__item h2{
+@media screen and (max-width: 1100px) {
+    .movie__img{
+        width: 180px;
+        height: 180px;
+    }
+    .watch__list{
+        padding: .8em 1em;
+    }
+}
+@media screen and (max-width: 900px) {
+    .list__item{
+        font-size: .9em;
+    }
+    .links button{
+        font-size: .7em;
+    }
+    .movie__img{
+        width: 150px;
+        height: 150px;
+    }
+}
+@media screen and (max-width: 580px) {
+    .movie__img{
+        width: 100px;
+        height: 100px;
+    }
+    .list__item{
+        font-size: .7em;
+    }
+    .links button{
         font-size: .5em;
+    }
+}
+@media screen and (max-width: 420px) {
+    .movie__img{
+        width: 70px;
+        height: 70px;
+    }
+    .list__item{
+        font-size: .6em;
+    }
+    .links button{
+        font-size: .4em;
     }
 }

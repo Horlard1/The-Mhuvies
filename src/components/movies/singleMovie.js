@@ -101,11 +101,11 @@ const SingleMovie = ({match, history}) => {
                 <img className="movie__image--one" src={mov.i ? mov.i.imageUrl : alternative} alt={mov.l} />
                 <div className="movies__details--one">
                         <h2>{mov.l && mov.l.length ? mov.l : mov.q}</h2>
-                        <h5>Actors: {mov.s}</h5>
+                        <h5>Directors: {mov.s}</h5>
                         <p>Year of Production: {mov.y ? mov.y : mov.yr }</p>
                         <span>Rank: {mov.rank}</span>
-                        <button onClick={()=> addToList(mov)}>Add to Watchlist <i className="fas fa-plus-circle"></i></button>
-                    {(mov.v && Object.keys(mov.v)) && <button onClick={()=>handleClick(movieID ? movieID: '')} className="movies__watch">Watch Preview</button>}
+                        <button className="movies__list" onClick={()=> addToList(mov)}>Add to Watchlist <i className="fas fa-plus-circle"></i></button>
+                    {(mov.v && Object.keys(mov.v)) && <button onClick={()=>handleClick(movieID ? movieID: '')} className="movies__watch">Watch Preview <i className="fas fa-play"></i></button>}
                 </div> 
             </div>
         ))}

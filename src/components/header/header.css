@@ -1,9 +1,12 @@
 header{
     border-bottom: 2px solid lightpink;
     background-color: black;
+    position: fixed;
+    width: 100%;
     color: white;
     padding: 2em;
     display: flex;
+    z-index: 999;
     align-items: center;
     justify-content: space-between;
 }
@@ -13,7 +16,7 @@ header{
 }
 .header__logo a{
     color: white;
-    font-weight: 500;
+    font-weight: 700;
 }
 .header__logo span{
     background: linear-gradient(to right, pink, red);
@@ -60,8 +63,28 @@ header ul li a i{
 .users li:last-child span i{
     margin-right: .5em;
 }
+.active{
+    animation: move 1s;
+}
+@keyframes move{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
 @media screen and (max-width: 580px) {
-    header ul.login{
-        display: none;
+    header{
+        padding: 1.5em 1em;
+    }
+    .header__logo{
+        font-size: 1.2em;
+    }
+    header ul{
+        font-size: .6em;
     }
 }

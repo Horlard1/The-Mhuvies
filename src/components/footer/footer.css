@@ -1,12 +1,15 @@
 footer{
-    height: 100px;
+    max-height: 200px;
     color: white;
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-top: 2.5em;
+    background-color: black;
     border-top: 2px solid darkgray;
     padding: 1em ;
+    justify-self: flex-end;
+    z-index: 3;
 }
 footer ul{
     display: flex;

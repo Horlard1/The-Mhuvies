@@ -25,21 +25,21 @@ import Watchlists from './pages/watchlist/watchlists';
 const App = () => {
   return (
     <Router>
-      <div className="app" style={{background: "black"}}>
+      <div className="app">
         <Switch>
           <UserContextProvider>
             <MoviesContextProvider>
               <ListContextProvider>
                 <VideoContextProvider>
                   <Header />
-                  <ToastContainer />
-                  <Route exact path="/" component= {Home} />
-                  <Route exact path ='/movie/:id' component={SingleMovie} />
-                  <Route exact path="/watch-preview" component={Videos} />
-                  <Route exact path='/login' component={Login} />
-                  <Route exact path="/watchlists" component={Watchlists} />
-                  {/* <Register />
-                  <Login /> */}
+                  <main>
+                    <ToastContainer />
+                    <Route exact path="/" component= {Home} />
+                    <Route exact path ='/movie/:id' component={SingleMovie} />
+                    <Route exact path="/watch-preview" component={Videos} />
+                    <Route exact path='/login' component={Login} />
+                    <Route exact path="/watchlists" component={Watchlists} />
+                  </main>
                   <Footer />
                 </VideoContextProvider>
               </ListContextProvider>
