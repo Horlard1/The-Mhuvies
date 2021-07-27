@@ -24,7 +24,13 @@ const SingleMovie = ({match, history}) => {
         setOneMovie(movie)
     }, [movies, match.params.id])
     useEffect(()=>{
-        if(oneMovie && oneMovie.length > 0){
+        const listMovie = list.length > 0 ? list.filter(i=>{
+            return i.id === match.params.id 
+        }): ''
+        if(listMovie.length > 0){
+            setMovieId(listMovie[0].movieID)
+        }
+        else if(oneMovie && oneMovie.length > 0){
             oneMovie.forEach(async(item) =>{
                 const {v} = item.v ? item: ''
                 if(v && v.length > 0){
@@ -44,7 +50,6 @@ const SingleMovie = ({match, history}) => {
                             headers,
                             params: {tconst: id, limit: '25', region: 'US'},
                         })
-                        console.log(data)
                         const {videos} = data.resource
                         if(typeof videos  === 'object' && videos.length > 0){
                             const selectedObject = videos[videos.map(items=> items.contentType === 'Trailer' && items.durationInSeconds).reduce((maxI, items, i, v) => items > v[maxI] ? i : maxI, 0)];
@@ -61,7 +66,7 @@ const SingleMovie = ({match, history}) => {
                 }
             })
         }
-    }, [oneMovie, match.params.id])
+    }, [oneMovie, match.params.id, list])
     const headers = {
         'x-rapidapi-key': process.env.React_APP_API_RAPID_API,
         'x-rapidapi-host': process.env.React_APP_API_RAPID_HOST
@@ -90,14 +95,24 @@ const SingleMovie = ({match, history}) => {
     const addToList =(movieItem)=>{
         if(user && typeof user === 'string' && user.trim().length > 0){
            if(list.length < 1){
-               setList([...list, movieItem])
+               if(movieItem.v && movieItem.v.length > 1){
+                   setList([...list, movieItem])
+               }else{
+                   const modMovieItem = {...movieItem, movieID}
+                   setList([...list, modMovieItem])
+               }
            }else{
                 let sameMovie = list.filter(i=> i.id === movieItem.id)
                 if(sameMovie && sameMovie.length > 0){
                     toast('Movie already listed')
                 }else{
-                    let newList = [...list, movieItem]
-                    setList(newList)
+                    if(movieItem.v && movieItem.v.length > 1){
+                        let newList = [...list, movieItem]
+                        setList(newList)
+                    }else{
+                        const modMovieItem = {...movieItem, movieID}
+                        setList([...list, modMovieItem])
+                    }
                 }
            }
         }else{

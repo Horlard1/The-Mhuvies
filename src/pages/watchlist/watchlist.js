@@ -6,7 +6,6 @@ import './watchlist.css'
 const Watchlist = ({item}) => {
     const history = useHistory()
     const [list, setList] = useContext(listContext)
-    console.log(item)
     const {l, q, s, i, id} = item
     const handleClick = (idData)=>{
         const filteredList = list.filter(i=> i.id !== idData)

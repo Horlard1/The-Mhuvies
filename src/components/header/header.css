@@ -1,5 +1,5 @@
 header{
-    border-bottom: 2px solid lightpink;
+    border-bottom: 2px solid rgb(80, 17, 27);
     background-color: black;
     position: fixed;
     width: 100%;
@@ -19,8 +19,10 @@ header{
     font-weight: 700;
 }
 .header__logo span{
-    background: linear-gradient(to right, pink, red);
-
+    background-image: linear-gradient(to right, pink, red);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 header ul{
     display: flex;

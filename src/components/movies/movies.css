@@ -2,8 +2,9 @@
     display: grid;
     width: 100%;
     grid-template-columns: repeat(3, minmax(250px, 1fr));
-    grid-gap: 1.5em;
+    grid-gap: 2em;
 }
+
 .movie__card{
     display: flex;
     flex-direction: column;
@@ -123,7 +124,7 @@
     justify-content: center;
     color: rgba(0, 0, 0, 0.45);
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 900px) {
     .movies__cards{
         grid-template-columns: repeat(2, minmax(250px, 1fr));
     }
