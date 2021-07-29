@@ -1,8 +1,6 @@
 import React, {useContext, useState} from 'react'
-import axios from 'axios';
 import { validateEmail } from '../../function/helper';
 import './login.css'
-import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
 import { userContext } from '../../context/userContext';
 
