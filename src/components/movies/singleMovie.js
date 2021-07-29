@@ -27,7 +27,7 @@ const SingleMovie = ({match, history}) => {
         const listMovie = list.length > 0 ? list.filter(i=>{
             return i.id === match.params.id 
         }): ''
-        if(listMovie.length > 0){
+        if(listMovie.length > 0 && typeof listMovie[0].movieID === 'string' && listMovie[0].movieID.length > 0){
             setMovieId(listMovie[0].movieID)
         }
         else if(oneMovie && oneMovie.length > 0){

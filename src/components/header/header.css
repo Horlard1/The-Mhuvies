@@ -40,6 +40,9 @@ header ul li a:hover{
 header ul li a i{
     margin-right: 1em;
 }
+.users{
+    position: relative;
+}
 .users li{
     font-size: 1.5em;
     cursor: pointer;
@@ -62,11 +65,36 @@ header ul li a i{
     border-radius: 50%;
     background-color: red;
 }
-.users li:last-child span i{
+.users li.user span i{
     margin-right: .5em;
 }
-.active{
+.hide{
+    position: absolute;
+    bottom: -40px;
+    display: none;
+    right: -10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: transparent;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.45);
+}
+.hide.show{
+    display: inline-block;
+    animation: show 1s;
+}
+li.hide:hover{
+    background: rgba(137, 138, 139, 0.123);
+}
+.list__active{
     animation: move 1s;
+}
+@keyframes show {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
 @keyframes move{
     0%{
@@ -88,5 +116,8 @@ header ul li a i{
     }
     header ul{
         font-size: .6em;
+    }
+    .hide{
+        bottom: -30px;
     }
 }

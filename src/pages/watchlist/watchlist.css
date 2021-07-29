@@ -98,6 +98,9 @@
     .list__item{
         font-size: .6em;
     }
+    .empty__list i{
+        font-size: 12em;
+    }
     .links button{
         font-size: .4em;
     }

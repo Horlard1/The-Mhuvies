@@ -16,17 +16,11 @@ const Movies = () => {
                 <div onClick={()=>handleClick(movie.id)} key={movie.id} className="movie__card">
                     <Movie movie={movie} />
                 </div>
-            )):<>
+            )):
                 <div className="empty__list">
                     <i className="fas fa-film"></i>
                 </div>
-                <div className="empty__list">
-                    <i className="fas fa-film"></i>
-                </div>
-                <div className="empty__list">
-                    <i className="fas fa-film"></i>
-                </div>
-            </>}
+              }
         </div>
     )
 }

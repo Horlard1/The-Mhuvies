@@ -90,17 +90,9 @@
     background: linear-gradient(to right, red, pink);
     border: none;
 }
-/* .movie__card .movies__watch{
-    background: linear-gradient(to right, red, pink);
-    display: inline-block;
-    padding: .5em 1em;
-    align-self: flex-end;
-    color: white;
-    font-weight: 600;
-    margin: .3em .5em 0 0;
-    border-radius: .5em;
-    transition: .3s all;
-} */
+.movies__cards .empty__list{
+    grid-column: 1 /-1;
+}
 /* Related Movies */
 .related__movies{
     padding: 0 1.5em;

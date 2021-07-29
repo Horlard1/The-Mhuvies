@@ -1,5 +1,5 @@
 footer{
-    max-height: 200px;
+    height: 100px;
     color: white;
     display: flex;
     justify-content: space-around;
@@ -30,6 +30,6 @@ footer ul li a i{
 }
 @media screen and (max-width: 450px) {
     footer{
-        font-size: .47em;
+        font-size: .5em;
     }
 }

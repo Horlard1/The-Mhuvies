@@ -5,7 +5,7 @@ import { movieContest } from '../../context/moviesContext'
 import { toast } from "react-toastify";
 
 const Form = () => {
-    const  [ movies, setMovies] = useContext(movieContest)
+    const  [movies, setMovies] = useContext(movieContest)
     const headers = {
         'x-rapidapi-key': process.env.React_APP_API_RAPID_API,
         'x-rapidapi-host': process.env.React_APP_API_RAPID_HOST
@@ -25,10 +25,8 @@ const Form = () => {
                 })
                 setMovies(data.d)
               } catch (error) {
-                //   if(error.request.status === 0){
-                //     toast('Network Error')
                     console.error(error.response)
-                //   }
+                    toast('Error in connection')
               }
               
           }
@@ -43,8 +41,7 @@ const Form = () => {
                 console.log(error.response)
             }
           }
-          
-      }, [movies, setMovies])
+        })
       
     return (
         <div className="form__field">
