@@ -25,23 +25,16 @@ const Form = () => {
                 })
                 setMovies(data.d)
               } catch (error) {
-                    console.error(error.response)
-                    toast('Error in connection')
+                    console.error(error.message)
+                    if(error.message && error.message === 'Operation canceled'){
+                        return false
+                    }else{
+                        toast('Error in connection')
+                      }
               }
               
           }
       }
-      useEffect(()=>{
-          if(!movies){
-            try {
-                axios.get('http://localhost:8000/autos').then(res=>{
-                    setMovies(res.data)
-                })
-            } catch (error) {
-                console.log(error.response)
-            }
-          }
-        })
       
     return (
         <div className="form__field">
