@@ -9,6 +9,9 @@ const ListContextProvider = (props) => {
         if(list.length > 0){
             localStorage.setItem('list', JSON.stringify(list))
         }
+        else if(list.length === 0){
+            localStorage.removeItem('list')
+        }
         else{
             let initList = JSON.parse(localStorage.getItem('list'))
             if(initList && initList.length){
