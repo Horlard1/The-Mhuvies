@@ -24,6 +24,9 @@ const SingleMovie = ({match, history}) => {
         setOneMovie(movie)
     }, [movies, match.params.id])
     useEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+    useEffect(()=>{
         const listMovie = list.length > 0 ? list.filter(i=>{
             return i.id === match.params.id 
         }): ''
