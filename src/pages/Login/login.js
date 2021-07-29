@@ -31,34 +31,13 @@ const Login = () => {
             return setPasswordErr('Password must be 6 characters or more')
           }
           setLoading(true)
-          try {
-            const res = await axios({
-                method: "POST",
-                data: {
-                    email,
-                    password
-                },
-                url: "http://localhost:8000/user"
-            })
-            if(res.status === 201){
-                console.log(res.data.email)
-                setUser(res.data.email)
-                setLoading(false)
-                localStorage.setItem('user', JSON.stringify(res.data.email))
-                history.goBack()
-            }else{
-                throw Error('Could not created account')
-            }
+          localStorage.setItem('user', JSON.stringify(email))
+          setTimeout(()=>{
+            setUser(email)
+            setLoading(false)
+            history.goBack()  
 
-          } catch (error) {
-              if(error.status === '404'){
-                  setLoading(false)
-                  toast('Server Error, try again')
-
-              }
-          }
-        
-        
+          }, 3000)
     }
     const resetFields = ()=>{
         setEmailErr('')
@@ -66,9 +45,6 @@ const Login = () => {
     }
     return (
         <div className="login__field">
-              {loading ? (
-                <h4 className="text-warning">loading...please wait.</h4>
-              ) : (<>
               {<div className="login__box">
                 <h1>Login Here</h1>
                 <form onSubmit={login}>
@@ -82,9 +58,9 @@ const Login = () => {
                         <input type="password"value={password} className={passwordErr? 'active':''} onChange={(e) => setPassword(e.target.value)} placeholder="Enter Password" />
                         {passwordErr && <small>{passwordErr}</small>}
                     </div>
-                    <input type="submit" value="Login" />
+                    <button type="submit">{loading ? <><span>Processing<i className="fas fa-spinner load"></i></span></>: 'Login'}</button>
                 </form>
-            </div>}</>)}
+            </div>}
         </div>
       )
 

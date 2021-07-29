@@ -53,8 +53,9 @@ small{
 	color: red;
     margin-top: 5px;
 }
-.login__box input[type="submit"]{
+.login__box button{
 	border: none;
+	width: 100%;
 	outline: none;
 	height: 40px;
 	background: #fb2525;
@@ -63,9 +64,9 @@ small{
 	border-radius: 20px;
     margin: 1em 0;
     font-weight: 700;
-}
-.login__box input[type="submit"]:hover{
 	cursor: pointer;
+}
+.login__box button:hover{
 	background: lightcoral;
 }
 @media screen and (max-width: 700px) {

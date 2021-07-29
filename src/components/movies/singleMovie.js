@@ -11,6 +11,7 @@ import { findNums } from '../../function/helper'
 
 
 const SingleMovie = ({match, history}) => {
+    const [loading, setLoading] = useState(false)
     const [oneMovie, setOneMovie] = useState(null)
     const [movies] = useContext(movieContest)
     const [list, setList] = useContext(listContext)
@@ -64,7 +65,7 @@ const SingleMovie = ({match, history}) => {
                             }
                         }
                     } catch (error) {
-                            toast('Error in connection')
+                            toast('Error loading video preview')
                     }
                 }
             })
@@ -77,13 +78,13 @@ const SingleMovie = ({match, history}) => {
     const handleClick = async (vid)=>{
         if(vid && vid.trim().length > 0){
             try {
+                setLoading(true)
                 const {data} = await axios.get(`${process.env.React_APP_API_URL}/title/get-video-playback`, {
                     headers,
                     params:{viconst: vid, region: 'US'}
                 })
-                console.log(data)
                 setVideo(data)
-                localStorage.setItem('video', JSON.stringify(data))
+                setLoading(false)
                 history.push('/watch-preview')
             } catch (error) {
                 if(error.request.status === 0){
@@ -133,7 +134,7 @@ const SingleMovie = ({match, history}) => {
                         <p>Released in year: {mov.y ? mov.y : mov.yr }</p>
                         <span>Rank: {mov.rank}</span>
                         <button className="movies__list" onClick={()=> addToList(mov)}>Add to Watchlist <i className="fas fa-plus-circle"></i></button>
-                    {((mov.v && Object.keys(mov.v)) || movieID )&& <button onClick={()=>handleClick(movieID ? movieID: '')} className="movies__watch">Watch Preview <i className="fas fa-play"></i></button>}
+                    {((mov.v && Object.keys(mov.v)) || movieID )&& <button onClick={()=>handleClick(movieID ? movieID: '')} className="movies__watch">{loading ? <span>Processing<i className="fas fa-spinner load"></i></span>: <span>Watch Preview <i className="fas fa-play"></i></span>}</button>}
                 </div> 
             </div>
         ))}
