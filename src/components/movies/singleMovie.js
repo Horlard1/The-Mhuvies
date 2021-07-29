@@ -64,7 +64,7 @@ const SingleMovie = ({match, history}) => {
                             }
                         }
                     } catch (error) {
-                        console.error(error)
+                            toast('Error in connection')
                     }
                 }
             })
