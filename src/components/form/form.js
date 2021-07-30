@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext} from 'react'
 import './form.css'
 import axios from 'axios'
 import { movieContest } from '../../context/moviesContext'
 import { toast } from "react-toastify";
 
 const Form = () => {
-    const  [movies, setMovies] = useContext(movieContest)
+    const  [, setMovies] = useContext(movieContest)
     const headers = {
         'x-rapidapi-key': process.env.React_APP_API_RAPID_API,
         'x-rapidapi-host': process.env.React_APP_API_RAPID_HOST
